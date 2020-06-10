@@ -1,5 +1,4 @@
 # stock-predictor
-AI and ML in Finance Final Project 
 
 ### This Python application has two distinct parts:
 #### _Part I:_
