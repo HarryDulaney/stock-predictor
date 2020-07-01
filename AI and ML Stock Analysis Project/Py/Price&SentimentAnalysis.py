@@ -1,15 +1,5 @@
-"""
-  The first section of this program  predicts the price of stocks using a machine learning
-  technique called Long Short-Term Memory (LSTM).
-
-  LSTMs (“long short-term memory” units) are the most powerful and well known subset of Recurrent Neural Networks.
-  They are a type of artificial neural network designed to recognize patterns in sequences of data, such as numerical
-  times series data.
-"""
-
 import math
 import collections
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas_datareader as web
 from keras.layers import Dense, LSTM
@@ -24,10 +14,33 @@ import warnings
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings('ignore')
+
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
+
 from collections import OrderedDict
+
+""" 
+******************************** The following libraries are required to run this application locally ****************************************
+matplotlib
+keras
+scikit-learn
+beautifulsoup4
+nltk
+pandas
+************************************************************************************************************************************************
+"""
+
+"""
+  The first section of this program  predicts the price of stocks using a machine learning
+  technique called Long Short-Term Memory (LSTM).
+
+  LSTMs (“long short-term memory” units) are the most powerful and well known subset of Recurrent Neural Networks.
+  They are a type of artificial neural network designed to recognize patterns in sequences of data, such as numerical
+  times series data.
+"""
+
 
 data = web.DataReader('MSFT', data_source='yahoo', start='2012-01-01', end='2020-04-20')
 
@@ -175,7 +188,7 @@ scores = {}
 # Iterate through search results page.
 # Minimum value is "(1,'2')" this will go back to late Feb
 # For most useful analysis with a still reasonable runtime "range(1,10)"
-for i in range(1, 10):
+for i in range(1, 2):
     page = urlopen('https://www.businesstimes.com.sg/search/microsoft?page=' + str(i)).read()
     soup = BeautifulSoup(page, features="html.parser")
     # Find the html tag matching <div class="media-body">
